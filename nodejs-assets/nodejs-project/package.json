@@ -1,0 +1,8 @@
+{
+  "name": "cabal-mobile-backend",
+  "version": "0.0.1",
+  "description": "Node.js part of the project",
+  "main": "main.js",
+  "author": "staltz.com",
+  "license": "GPLv3"
+}

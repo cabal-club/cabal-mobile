@@ -1,5 +1,6 @@
 import React from 'react';
 import {GiftedChat} from 'react-native-gifted-chat';
+import nodejs from 'nodejs-mobile-react-native';
 
 export default class App extends React.Component {
   state = {
@@ -7,6 +8,22 @@ export default class App extends React.Component {
   };
 
   componentWillMount() {
+    nodejs.start('main.js');
+    nodejs.channel.addListener(
+      'message',
+      text => {
+        const msg = {
+          _id: 191023,
+          text: text,
+          createdAt: new Date(),
+          system: true,
+        };
+        this.setState(previousState => ({
+          messages: GiftedChat.append(previousState.messages, [msg]),
+        }));
+      },
+      this,
+    );
     this.setState({
       messages: [
         {
@@ -24,6 +41,7 @@ export default class App extends React.Component {
   }
 
   onSend(messages = []) {
+    console.warn(messages);
     this.setState(previousState => ({
       messages: GiftedChat.append(previousState.messages, messages),
     }));
