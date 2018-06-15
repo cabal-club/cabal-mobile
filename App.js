@@ -11,13 +11,21 @@ export default class App extends React.Component {
     nodejs.start('main.js');
     nodejs.channel.addListener(
       'message',
-      text => {
-        const msg = {
-          _id: 191023,
-          text: text,
-          createdAt: new Date(),
-          system: true,
-        };
+      raw => {
+        const msg = JSON.parse(raw);
+        if (msg.type === 'system') msg.system = true;
+        else if (msg.type === 'chat/text') {
+          msg.user = {
+            _id: 2,
+            name: msg.author,
+            avatar: 'https://placeimg.com/140/140/any',
+          };
+        } else {
+          msg.text = JSON.stringify(msg);
+        }
+        msg.type;
+        if (!msg._id) msg._id = Math.round(Math.random() * 100000);
+        if (!msg.createdAt) msg.createdAt = new Date();
         this.setState(previousState => ({
           messages: GiftedChat.append(previousState.messages, [msg]),
         }));
@@ -25,23 +33,11 @@ export default class App extends React.Component {
       this,
     );
     this.setState({
-      messages: [
-        {
-          _id: 1,
-          text: 'Hello developer',
-          createdAt: new Date(),
-          user: {
-            _id: 2,
-            name: 'React Native',
-            avatar: 'https://placeimg.com/140/140/any',
-          },
-        },
-      ],
+      messages: [],
     });
   }
 
   onSend(messages = []) {
-    console.warn(messages);
     this.setState(previousState => ({
       messages: GiftedChat.append(previousState.messages, messages),
     }));
