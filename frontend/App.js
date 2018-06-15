@@ -1,8 +1,15 @@
 import React from 'react';
-import {GiftedChat} from 'react-native-gifted-chat';
+import {View, StyleSheet} from 'react-native';
+import {GiftedChat, SystemMessage} from 'react-native-gifted-chat';
 import nodejs from 'nodejs-mobile-react-native';
+import Message from './Message';
 
 export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.renderMessage = this.renderMessage.bind(this);
+  }
+
   state = {
     messages: [],
   };
@@ -18,7 +25,6 @@ export default class App extends React.Component {
           msg.user = {
             _id: 2,
             name: msg.author,
-            avatar: 'https://placeimg.com/140/140/any',
           };
         } else {
           msg.text = JSON.stringify(msg);
@@ -43,14 +49,21 @@ export default class App extends React.Component {
     }));
   }
 
+  renderMessage(props) {
+    if (props.currentMessage.type === 'system') {
+      return <SystemMessage {...props} />;
+    } else {
+      return <Message {...props} />;
+    }
+  }
+
   render() {
     return (
       <GiftedChat
         messages={this.state.messages}
         onSend={messages => this.onSend(messages)}
-        user={{
-          _id: 1,
-        }}
+        renderMessage={this.renderMessage}
+        user={{_id: 1}}
       />
     );
   }

@@ -10,7 +10,8 @@
     "nodejs-mobile-react-native": "^0.1.4",
     "react": "16.3.1",
     "react-native": "0.55.4",
-    "react-native-gifted-chat": "0.4.3"
+    "react-native-gifted-chat": "0.4.3",
+    "string-to-color": "^2.0.0"
   },
   "devDependencies": {
     "babel-jest": "23.0.1",
