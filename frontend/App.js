@@ -62,6 +62,7 @@ export default class App extends React.Component {
       <GiftedChat
         messages={this.state.messages}
         onSend={messages => this.onSend(messages)}
+        placeholder={'Message'}
         renderMessage={this.renderMessage}
         user={{_id: 1}}
       />
