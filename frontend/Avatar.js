@@ -4,9 +4,9 @@ import strToColor from 'string-to-color';
 
 const styles = StyleSheet.create({
   avatar: {
-    height: 32,
-    width: 32,
-    borderRadius: 16,
+    height: 20,
+    width: 20,
+    borderRadius: 3,
     marginRight: 6,
   },
 });
@@ -16,6 +16,6 @@ export default class Avatar extends React.Component {
     const {isHidden, message} = this.props;
     const hiddenStyle = isHidden ? {height: 0} : null;
     const colorStyle = {backgroundColor: strToColor(message.author)};
-    return <View style={[styles.avatar, colorStyle, hiddenStyle]} />;
+    return <View style={[styles.avatar, hiddenStyle, colorStyle]} />;
   }
 }

@@ -64,7 +64,7 @@ export default class Message extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    alignItems: 'flex-end',
+    alignItems: 'flex-start',
     justifyContent: 'flex-start',
     marginLeft: 8,
     marginRight: 0,
