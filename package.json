@@ -2,6 +2,7 @@
   "name": "cabalmobile",
   "version": "0.0.1",
   "private": true,
+  "license": "GPLv3",
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest"
@@ -11,6 +12,7 @@
     "react": "16.3.1",
     "react-native": "0.55.4",
     "react-native-gifted-chat": "0.4.3",
+    "react-navigation": "^2.3.1",
     "string-to-color": "^2.0.0"
   },
   "devDependencies": {

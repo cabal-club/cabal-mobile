@@ -1,43 +1,78 @@
-var bridge = require('rn-bridge');
+var fs = require('fs');
+var path = require('path');
+var rimraf = require('rimraf');
+var frontend = require('rn-bridge');
 var Cabal = require('cabal-node');
 var cabalSwarm = require('cabal-node/swarm.js');
-var path = require('path');
-var toPull = require('stream-to-pull-stream');
-var pull = require('pull-stream');
 
-// Echo every message received from react-native.
-bridge.channel.on('message', msg => {
-  bridge.channel.send(msg);
-});
+var cabal;
 
-// Inform react-native node is initialized.
-bridge.channel.send(
-  JSON.stringify({type: 'system', text: 'Node was initialized.'}),
+frontend.channel.send(
+  JSON.stringify({type: 'init', text: 'Node was initialized.'}),
 );
 
-const key = '5869c063aad96aecbe36d0b0df452ba5da8907b9a52d8b680a9600f1b90a86ed';
-const db = path.resolve(__dirname, '..', 'db', key);
-
-var cabal = Cabal(db, key, {username: 'mobile'});
-cabal.db.on('ready', function() {
-  bridge.channel.send(
-    JSON.stringify({type: 'system', text: 'Connected to the swarm'}),
-  );
-  cabalSwarm(cabal);
-  cabal.joinChannel('default');
-  pull(
-    toPull.source(cabal.createReadStream('default')),
-    pull.drain(msgs => {
-      msgs.forEach(msg => {
-        const payload = {
-          type: msg.value.type,
-          author: msg.value.author,
-          createdAt: msg.value.time,
-          text: msg.value.content,
-        };
-        console.warn(payload);
-        bridge.channel.send(JSON.stringify(payload));
-      });
-    }),
-  );
+frontend.channel.on('message', raw => {
+  var msg = JSON.parse(raw);
+  if (msg.type === 'join') return startOrJoin(msg.key, msg.nick);
+  if (msg.type === 'enter') return enterChannel(msg.channel);
+  if (msg.type === 'exit') return exitChannel(msg.channel);
+  if (msg.type === 'publish') return publish(msg.channel, msg.text, msg.nick);
 });
+
+function startOrJoin(key, nick) {
+  var starting = !key;
+  var dir = path.resolve(__dirname, '..', 'db', starting ? 'myinstance' : key);
+  if (starting && fs.existsSync(dir)) rimraf.sync(dir);
+  cabal = Cabal(dir, starting ? null : key, {username: nick});
+  cabal.db.on('ready', function() {
+    if (starting) cabal.joinChannel('default');
+    const key = cabal.db.key.toString('hex');
+    frontend.channel.send(JSON.stringify({type: 'ready', key}));
+    cabalSwarm(cabal);
+    cabal.getChannels(sendChannels);
+  });
+}
+
+function sendChannels(err, channels) {
+  if (err) return console.error(err);
+  if (cabal) {
+    cabal.channels.forEach(c => {
+      if (channels.indexOf(c) === -1) channels.push(c);
+    });
+  }
+  frontend.channel.send(JSON.stringify({type: 'channels', channels}));
+}
+
+function sendMessages(err, msgs) {
+  if (err) return console.error(err);
+  const payload = msgs.filter(msg => msg.length > 0).map(msg => ({
+    _id: `${msg[0].feed}.${msg[0].seq}`,
+    author: msg[0].value.author,
+    authorId: msg[0].feed,
+    type: msg[0].value.type,
+    createdAt: msg[0].value.time,
+    text: msg[0].value.content,
+  }));
+  frontend.channel.send(JSON.stringify({type: 'many', payload}));
+}
+
+function enterChannel(channel) {
+  if (!cabal) return;
+  cabal.joinChannel(channel);
+  cabal.getMessages(channel, 100, (err, msgs) => {
+    sendMessages(err, msgs);
+    cabal.watch(channel, () => {
+      cabal.getMessages(channel, 1, sendMessages);
+    });
+  });
+}
+
+function exitChannel(channel) {
+  if (!cabal) return;
+  cabal.leaveChannel(channel);
+}
+
+function publish(channel, text, nick) {
+  if (!cabal) return;
+  cabal.message(channel, text, {username: nick, type: 'chat/text'});
+}
