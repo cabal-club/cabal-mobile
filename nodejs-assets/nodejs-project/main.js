@@ -21,7 +21,9 @@ frontend.channel.on('message', raw => {
 
 function startOrJoin(key, nick) {
   var starting = !key;
-  var dir = path.resolve(__dirname, '..', 'db', starting ? 'myinstance' : key);
+  var dbPath = process.env.DB_PATH ? process.env.DB_PATH :
+    path.resolve(__dirname, '..', 'db');
+  var dir = path.resolve(dbPath, starting ? 'myinstance' : key);
   if (starting && fs.existsSync(dir)) rimraf.sync(dir);
   cabal = Cabal(dir, starting ? null : key, {username: nick});
   cabal.db.on('ready', function() {

@@ -16,6 +16,10 @@
 {
   NSURL *jsCodeLocation;
 
+  /* Find db directory */
+  NSString* dbPath = [NSString stringWithFormat:@"%@/db", [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject]];
+  setenv("DB_PATH", [dbPath UTF8String], 1);
+
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
 
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
