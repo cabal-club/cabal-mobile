@@ -5,6 +5,8 @@
   "license": "GPLv3",
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
+    "run-android": "react-native run-android",
+    "run-ios": "react-native run-ios",
     "test": "jest"
   },
   "dependencies": {
