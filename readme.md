@@ -1,6 +1,6 @@
 # Cabal Mobile
 
-Chat with the p2p swarm on your mobile device (Android & maybe iOS).
+Chat with the p2p swarm on your mobile device (Android & iOS).
 
 <img src="./screenshot.jpg" width="240">
 
@@ -30,8 +30,14 @@ npm install
 Then run
 
 ```bash
-react-native run-android
+npm run run-android
+# or
+npm run run-ios
 ```
+
+## Troubleshooting
+
+#### Android
 
 If things go wrong, try rebuilding the backend:
 
@@ -39,8 +45,12 @@ If things go wrong, try rebuilding the backend:
 cd android
 ./gradlew clean
 cd ..
-react-native run-android
+npm run run-android
 ```
+
+#### iOS
+
+...
 
 ## License
 
