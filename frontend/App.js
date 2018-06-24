@@ -1,53 +1,57 @@
-import {createStackNavigator} from 'react-navigation';
-import HomeScreen from './screens/HomeScreen';
-import StartModal from './screens/StartModal';
-import JoinModal from './screens/JoinModal';
-import ChannelsList from './screens/ChannelsList';
-import ChatScreen from './screens/ChatScreen';
+import {createSwitchNavigator, createStackNavigator} from 'react-navigation'
+import ChannelsList from './screens/ChannelsList'
+import ChatScreen from './screens/ChatScreen'
+import HomeScreen from './screens/HomeScreen'
+import JoinModal from './screens/JoinModal'
+import SplashScreen from './screens/SplashScreen'
+import StartModal from './screens/StartModal'
 
 const MainStack = createStackNavigator(
   {
     Home: {
-      screen: HomeScreen,
+      screen: HomeScreen
+    },
+    StartModal: {
+      screen: StartModal
+    },
+    JoinModal: {
+      screen: JoinModal
     },
     Channels: {
       screen: ChannelsList,
+      path: ':key/channels'
     },
     Chat: {
       screen: ChatScreen,
-    },
-  },
-  {
-    initialRouteName: 'Home',
-  },
-);
+      path: ':key/chat/:channel'
+    }
+  }, {
+    initialRouteName: 'Home'
+  }
+)
 
-export default createStackNavigator(
+export default createSwitchNavigator(
   {
+    SplashScreen: {
+      screen: SplashScreen
+    },
     Main: {
-      screen: MainStack,
-    },
-    StartModal: {
-      screen: StartModal,
-    },
-    JoinModal: {
-      screen: JoinModal,
-    },
-  },
-  {
-    initialRouteName: 'Main',
+      screen: MainStack
+    }
+  }, {
+    initialRouteName: 'SplashScreen',
     mode: 'modal',
     headerMode: 'none',
     cardStyle: {
-      backgroundColor: 'rgba(0,0,0,0.5)',
+      backgroundColor: '#fff',
       flexDirection: 'column',
       flex: 1,
-      justifyContent: 'center',
+      justifyContent: 'center'
     },
     transitionConfig: () => ({
       screenInterpolator: props => ({
-        transform: [{translateX: 0}, {translateY: 0}],
-      }),
-    }),
-  },
-);
+        transform: [{translateX: 0}, {translateY: 0}]
+      })
+    })
+  }
+)
