@@ -20,11 +20,7 @@ export default class SplashScreen extends React.Component {
     }
   }
 
-  static navigationOptions = ({navigation}) => {
-    return {
-      header: null
-    }
-  }
+  static navigationOptions = ({navigation}) => ({header: null})
 
   async componentDidMount () {
     Animated.timing(this.state.logoAnimation, { toValue: 1, duration: 2000 }).start()
@@ -49,7 +45,6 @@ export default class SplashScreen extends React.Component {
     this.backendListener = (raw) => {
       const msg = JSON.parse(raw)
       if (msg.type === 'ready') {
-        console.log('READY!', msg)
         this.setState({stillLoading: true})
       }
       if (msg.type === 'channels') {

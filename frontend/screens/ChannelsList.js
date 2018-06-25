@@ -93,7 +93,7 @@ export default class HomeScreen extends React.Component {
 
     if (this._initialLoad) {
       this._initialLoad = false
-      const channel = (await AsyncStorage.getItem('favorite-channel'))
+      const channel = await AsyncStorage.getItem('favorite-channel')
       if (channel) {
         this.enterChannel(channel)
       }
