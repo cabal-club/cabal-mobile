@@ -2,10 +2,17 @@ var fs = require('fs');
 var path = require('path');
 var rimraf = require('rimraf');
 var frontend = require('rn-bridge');
-var Cabal = require('cabal-node');
-var cabalSwarm = require('cabal-node/swarm.js');
 
 var cabal;
+
+var prebuilds = ['sodium-native', 'utp-native'];
+prebuilds.forEach(pkgName => {
+  var pkgJson = pkgName + '-prebuilds-nodejs-mobile/package.json';
+  var dir = path.dirname(require.resolve(pkgJson));
+  var envKey = pkgName.toUpperCase().replace(/\-/g, '_') + '_PREBUILD';
+  process.env[envKey] = dir;
+});
+
 
 frontend.channel.send(
   JSON.stringify({type: 'init', text: 'Node was initialized.'}),
@@ -20,6 +27,9 @@ frontend.channel.on('message', raw => {
 });
 
 function startOrJoin(key, nick) {
+  var Cabal = require('cabal-node');
+  var cabalSwarm = require('cabal-node/swarm.js');
+
   var starting = !key;
   var dbPath = process.env.DB_PATH ? process.env.DB_PATH :
     path.resolve(__dirname, '..', 'db');
