@@ -1,5 +1,5 @@
 import React from 'react'
-import {AsyncStorage, View, Text, Button, StatusBar, StyleSheet} from 'react-native'
+import {View, Text, Button, StatusBar, StyleSheet} from 'react-native'
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -14,7 +14,7 @@ export default class HomeScreen extends React.Component {
     this.props.navigation.navigate('JoinModal')
   }
 
-  render() {
+  render () {
     return (
       <View style={styles.root}>
         <StatusBar backgroundColor='#fff' barStyle='dark-content' />
@@ -23,9 +23,9 @@ export default class HomeScreen extends React.Component {
         <Text style={styles.text}>Choose below to start a new instance</Text>
         <Text style={styles.text}>or join an existing one</Text>
         <View style={styles.choices}>
-          <Button title="Start" onPress={this.onPressStart} />
+          <Button title='Start' onPress={this.onPressStart} />
           <View style={styles.spacer} />
-          <Button title="Join" onPress={this.onPressJoin} />
+          <Button title='Join' onPress={this.onPressJoin} />
         </View>
       </View>
     )
@@ -37,21 +37,21 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#f5f5f5'
   },
 
   emoji: {
-    fontSize: 50,
+    fontSize: 50
   },
 
   title: {
     fontSize: 18,
-    color: '#232323',
+    color: '#232323'
   },
 
   text: {
     fontSize: 14,
-    color: '#232323',
+    color: '#232323'
   },
 
   choices: {
@@ -59,10 +59,10 @@ const styles = StyleSheet.create({
     marginTop: 20,
     alignSelf: 'stretch',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
 
   spacer: {
-    width: 40,
+    width: 40
   }
 })

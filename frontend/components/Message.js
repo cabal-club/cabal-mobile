@@ -1,51 +1,51 @@
-import React from 'react';
-import {View, StyleSheet} from 'react-native';
-import {Day, utils} from 'react-native-gifted-chat';
-import Bubble from './Bubble';
-import Avatar from './Avatar';
+import React from 'react'
+import {View, StyleSheet} from 'react-native'
+import {Day, utils} from 'react-native-gifted-chat'
+import Bubble from './Bubble'
+import Avatar from './Avatar'
 
-const {isSameUser, isSameDay} = utils;
+const {isSameUser, isSameDay} = utils
 
 export default class Message extends React.Component {
-  getInnerComponentProps() {
-    const {containerStyle, ...props} = this.props;
+  getInnerComponentProps () {
+    const {containerStyle, ...props} = this.props
     return {
       ...props,
       position: 'left',
       isSameUser,
-      isSameDay,
-    };
-  }
-
-  renderDay() {
-    if (this.props.currentMessage.createdAt) {
-      const dayProps = this.getInnerComponentProps();
-      return <Day {...dayProps} />;
+      isSameDay
     }
-    return null;
   }
 
-  renderBubble() {
-    const bubbleProps = this.getInnerComponentProps();
-    return <Bubble {...bubbleProps} />;
+  renderDay () {
+    if (this.props.currentMessage.createdAt) {
+      const dayProps = this.getInnerComponentProps()
+      return <Day {...dayProps} />
+    }
+    return null
   }
 
-  renderAvatar() {
-    const {currentMessage, previousMessage} = this.props;
+  renderBubble () {
+    const bubbleProps = this.getInnerComponentProps()
+    return <Bubble {...bubbleProps} />
+  }
+
+  renderAvatar () {
+    const {currentMessage, previousMessage} = this.props
     const isHidden =
       isSameUser(currentMessage, previousMessage) &&
-      isSameDay(currentMessage, previousMessage);
-    const message = this.props.currentMessage;
-    return <Avatar message={message} isHidden={isHidden} />;
+      isSameDay(currentMessage, previousMessage)
+    const message = this.props.currentMessage
+    return <Avatar message={message} isHidden={isHidden} />
   }
 
-  render() {
+  render () {
     const marginBottom = isSameUser(
       this.props.currentMessage,
-      this.props.nextMessage,
+      this.props.nextMessage
     )
       ? 2
-      : 10;
+      : 10
 
     return (
       <View>
@@ -57,7 +57,7 @@ export default class Message extends React.Component {
           {this.renderBubble()}
         </View>
       </View>
-    );
+    )
   }
 }
 
@@ -67,14 +67,14 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
     marginLeft: 8,
-    marginRight: 0,
-  },
-});
+    marginRight: 0
+  }
+})
 
 Message.defaultProps = {
   currentMessage: {},
   nextMessage: {},
   previousMessage: {},
   user: {},
-  containerStyle: {},
-};
+  containerStyle: {}
+}
