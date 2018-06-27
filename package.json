@@ -43,6 +43,9 @@
       "alert",
       "test",
       "expect"
+    ],
+    "ignore": [
+      "nodejs-assets/nodejs-project/sample-main.js"
     ]
   }
 }
