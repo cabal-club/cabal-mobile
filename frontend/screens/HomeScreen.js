@@ -1,28 +1,23 @@
-import React from 'react';
-import {View, Text, Button, StyleSheet} from 'react-native';
+import React from 'react'
+import {AsyncStorage, View, Text, Button, StatusBar, StyleSheet} from 'react-native'
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
-    title: 'Cabal',
-  };
-
-  constructor(props) {
-    super(props);
-    this.onPressStart = this.onPressStart.bind(this);
-    this.onPressJoin = this.onPressJoin.bind(this);
+    title: 'Cabal'
   }
 
-  onPressStart() {
-    this.props.navigation.navigate('StartModal');
+  onPressStart = () => {
+    this.props.navigation.navigate('StartModal')
   }
 
-  onPressJoin() {
-    this.props.navigation.navigate('JoinModal');
+  onPressJoin = () => {
+    this.props.navigation.navigate('JoinModal')
   }
 
   render() {
     return (
       <View style={styles.root}>
+        <StatusBar backgroundColor='#fff' barStyle='dark-content' />
         <Text style={styles.title}>Welcome to Cabal, a p2p chat system</Text>
         <Text style={styles.emoji}>{String.fromCharCode(0xd83d, 0xdc53)}</Text>
         <Text style={styles.text}>Choose below to start a new instance</Text>
@@ -33,7 +28,7 @@ export default class HomeScreen extends React.Component {
           <Button title="Join" onPress={this.onPressJoin} />
         </View>
       </View>
-    );
+    )
   }
 }
 
@@ -69,5 +64,5 @@ const styles = StyleSheet.create({
 
   spacer: {
     width: 40,
-  },
-});
+  }
+})

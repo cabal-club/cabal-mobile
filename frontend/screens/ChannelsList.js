@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  AsyncStorage,
   FlatList,
   View,
   TouchableOpacity,
@@ -58,6 +59,7 @@ export default class HomeScreen extends React.Component {
       ),
       channels: [],
     };
+    this._initialLoad = true
   }
 
   componentWillMount() {
@@ -85,9 +87,17 @@ export default class HomeScreen extends React.Component {
     backend.channel.send(raw);
   }
 
-  updateKey(key) {
+  async updateKey(key) {
     this.props.navigation.setParams({key, nick: this.state.nick});
     this.setState(prev => ({...prev, key}));
+
+    if (this._initialLoad) {
+      this._initialLoad = false
+      const channel = await AsyncStorage.getItem('favorite-channel')
+      if (channel) {
+        this.enterChannel(channel)
+      }
+    }
   }
 
   updateChannels(channels) {
@@ -95,6 +105,7 @@ export default class HomeScreen extends React.Component {
   }
 
   enterChannel(channel) {
+    AsyncStorage.setItem('favorite-channel', channel)
     const nick = this.state.nick;
     this.props.navigation.navigate('Chat', {channel, nick});
   }
