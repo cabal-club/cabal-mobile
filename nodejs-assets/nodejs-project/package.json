@@ -8,9 +8,9 @@
     "cabal-node": "2.1.1",
     "pull-stream": "3.6.8",
     "rimraf": "2.6.2",
-    "sodium-native-prebuilds-nodejs-mobile": "^2.1.6-7",
+    "sodium-native-prebuilds-nodejs-mobile": "^2.1.6-8",
     "stream-to-pull-stream": "1.7.2",
-    "utp-native-prebuilds-nodejs-mobile": "^1.7.1-4"
+    "utp-native-prebuilds-nodejs-mobile": "^1.7.1-5"
   },
   "license": "GPLv3",
   "devDependencies": {
