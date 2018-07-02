@@ -10,7 +10,7 @@
     "rimraf": "2.6.2",
     "sodium-native-prebuilds-nodejs-mobile": "^2.1.6-8",
     "stream-to-pull-stream": "1.7.2",
-    "utp-native-prebuilds-nodejs-mobile": "^1.7.1-5"
+    "utp-native-prebuilds-nodejs-mobile": "^1.7.1-8"
   },
   "license": "GPLv3",
   "devDependencies": {
