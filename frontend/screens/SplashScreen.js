@@ -3,12 +3,10 @@ import {
   ActivityIndicator,
   Animated,
   AsyncStorage,
-  Image,
   StyleSheet,
   StatusBar,
-  View,
+  View
 } from 'react-native'
-import {NavigationActions} from 'react-navigation'
 
 import backend from 'nodejs-mobile-react-native'
 
