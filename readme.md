@@ -2,13 +2,13 @@
 
 Chat with the p2p swarm on your mobile device (Android & iOS).
 
-<img src="./screenshot.jpg" width="240">
+<img src="./screenshot.jpg" width="320">
 
 ## Install
 
-- Through GitHub Releases: [APK file](https://github.com/cabal-club/cabal-mobile/releases/download/1.0/app-release.apk)
-- Through [Dat Installer](https://github.com/staltz/dat-installer/): `dat://199c8ad61f269fb243425895e315fab8fd2a8f96ced1c82899aea1895d9473ec`
-- ~~From the Play Store: not yet~~
+- [APK file](https://github.com/cabal-club/cabal-mobile/releases/download/1.0/app-release.apk)
+- [Dat Installer](https://github.com/staltz/dat-installer/): `dat://199c8ad61f269fb243425895e315fab8fd2a8f96ced1c82899aea1895d9473ec`
+- ~~Play Store: not yet~~
 
 ## Development
 
