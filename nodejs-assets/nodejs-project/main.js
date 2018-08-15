@@ -2,8 +2,8 @@ var fs = require('fs')
 var path = require('path')
 var rimraf = require('rimraf')
 var frontend = require('rn-bridge')
-var Cabal = require('cabal-node')
-var cabalSwarm = require('cabal-node/swarm.js')
+var Cabal = require('cabal-core')
+var cabalSwarm = require('cabal-core/swarm.js')
 
 var cabal
 
