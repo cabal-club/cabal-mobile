@@ -51,12 +51,18 @@ export default class ChatScreen extends React.Component {
 
   includeMany (msgs) {
     msgs.forEach(msg => {
-      if (msg.type === 'system') msg.system = true
-      if (msg.type !== 'chat/text' && msg.type !== 'system') { msg.text = JSON.stringify(msg) }
-      if (msg.author) msg.user = {_id: msg.authorId, name: msg.author}
-      if (!msg.createdAt) msg.createdAt = new Date()
+      if (msg.type === 'system') msg.system = true;
+      if (msg.type !== 'chat/text' && msg.type !== 'system')
+        msg.text = JSON.stringify(msg);
+      if (msg.author) msg.user = {_id: msg.authorId, name: msg.author};
+      if (!msg.createdAt) msg.createdAt = new Date();
+    });
+    console.log({msgs})
+    msgs.reverse();
+    // Remove duplicate messages
+    msgs = msgs.filter((msg, index) => {
+      return msgs.map(mapObj => mapObj._id).indexOf(msg._id) === index;
     })
-    msgs.reverse()
     this.setState(prev => ({
       nick: prev.nick,
       channel: prev.channel,
@@ -103,6 +109,6 @@ const styles = StyleSheet.create({
   root: {
     flex: 1,
     alignItems: 'stretch',
-    backgroundColor: '#f5f5f5'
-  }
-})
+    backgroundColor: '#fff',
+  },
+});

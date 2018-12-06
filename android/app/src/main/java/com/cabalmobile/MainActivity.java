@@ -1,4 +1,4 @@
-package com.cabalmobile;
+package chat.cabal.mobile;
 
 import com.facebook.react.ReactActivity;
 

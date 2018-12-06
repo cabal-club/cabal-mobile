@@ -48,7 +48,7 @@ function sendChannels (err, channels) {
 function sendMessages (err, msgs) {
   if (err) return console.error(err)
   const payload = msgs.filter(msg => msg.length > 0).map(msg => ({
-    _id: `${msg[0].feed}.${msg[0].seq}`,
+    _id: `${msg[0].feed}.${msg[0].seq}.${msg[0].value.time}`,
     author: msg[0].value.author,
     authorId: msg[0].feed,
     type: msg[0].value.type,

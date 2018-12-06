@@ -188,11 +188,13 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end'
   },
   username: {
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    color: '#000'
   },
   time: {
     textAlign: 'left',
-    fontSize: 12
+    fontSize: 14,
+    color: '#111'
   },
   timeContainer: {
     marginLeft: 0,
