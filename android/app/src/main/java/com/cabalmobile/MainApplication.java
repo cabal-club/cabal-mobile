@@ -1,4 +1,4 @@
-package chat.cabal.mobile;
+package com.cabalmobile;
 
 import android.app.Application;
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import {View, StyleSheet} from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import Blockies from 'blockies-bmp/react-native-component'
 global.Buffer = require('buffer').Buffer // Import Buffer globally for the Blockies component
 
@@ -17,12 +17,12 @@ const styles = StyleSheet.create({
 
 export default class Avatar extends React.Component {
   render () {
-    const {isHidden, message} = this.props
-    const hiddenStyle = isHidden ? {height: 0} : null
+    const { isHidden, message } = this.props
+    const hiddenStyle = isHidden ? { opacity: 0 } : null
     return (
       <View style={[styles.avatar, hiddenStyle]}>
         <Blockies
-          opts={{seed: message.author}}
+          opts={{ seed: message.user.name }}
           size={40}
           style={styles.avatarImage}
           bgColor='#fff'

@@ -25,36 +25,36 @@ export default class JoinModal extends React.Component {
   async componentDidMount () {
     const key = (await AsyncStorage.getItem('favorite-key')) || ''
     const nick = (await AsyncStorage.getItem('favorite-nick')) || ''
-    this.setState(prev => ({...prev, key, nick}))
+    this.setState(prev => ({ ...prev, key, nick }))
   }
 
   onPressEnter () {
-    const {key, nick} = this.state
+    const { key, nick } = this.state
     let valid = true
     if (key.length < 64) {
-      this.setState(prev => ({...prev, keyValid: false}))
+      this.setState(prev => ({ ...prev, keyValid: false }))
       valid = false
     }
     if (nick.length === 0) {
-      this.setState(prev => ({...prev, nickValid: false}))
+      this.setState(prev => ({ ...prev, nickValid: false }))
       valid = false
     }
     if (!valid) return
     AsyncStorage.setItem('favorite-key', key)
     AsyncStorage.setItem('favorite-nick', nick)
-    this.props.navigation.navigate('Channels', {key, nick})
+    this.props.navigation.navigate('Channels', { key, nick })
   }
 
   onChangeKey (key) {
-    this.setState(prev => ({...prev, key, keyValid: true}))
+    this.setState(prev => ({ ...prev, key, keyValid: true }))
   }
 
   onChangeNick (nick) {
-    this.setState(prev => ({...prev, nick, nickValid: true}))
+    this.setState(prev => ({ ...prev, nick, nickValid: true }))
   }
 
   render () {
-    const {keyValid, nickValid} = this.state
+    const { keyValid, nickValid } = this.state
     return (
       <View style={styles.root}>
         <Text style={styles.label}>

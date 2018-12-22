@@ -1,5 +1,5 @@
 import React from 'react'
-import {View, Text, Button, StatusBar, StyleSheet} from 'react-native'
+import { View, Text, Button, StatusBar, StyleSheet } from 'react-native'
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -18,7 +18,7 @@ export default class HomeScreen extends React.Component {
     return (
       <View style={styles.root}>
         <StatusBar backgroundColor='#fff' barStyle='dark-content' />
-        <Text style={styles.title}>Welcome to Cabal, a p2p chat system</Text>
+        <Text style={styles.title}>Cabal</Text>
         <Text style={styles.emoji}>{String.fromCharCode(0xd83d, 0xdc53)}</Text>
         <Text style={styles.text}>Choose below to start a new instance</Text>
         <Text style={styles.text}>or join an existing one</Text>

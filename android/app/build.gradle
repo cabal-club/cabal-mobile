@@ -104,6 +104,10 @@ android {
         versionCode 1
         versionName "1.0"
 
+        aaptOptions {
+            ignoreAssetsPattern '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
+        }
+
         externalNativeBuild {
             cmake {
                 version "3.7.1"
@@ -155,6 +159,8 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-gesture-handler')
+    implementation project(':nodejs-mobile-react-native')
     implementation project(':nodejs-mobile-react-native')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.android.support:appcompat-v7:28.0.0"

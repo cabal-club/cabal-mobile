@@ -1,5 +1,6 @@
 import React from 'react'
 import {
+  Alert,
   AsyncStorage,
   FlatList,
   View,
@@ -19,7 +20,7 @@ class HomeHeader extends React.Component {
 
   onPressCopy () {
     Clipboard.setString(this.props.value)
-    alert('Copied to the clipboard!')
+    Alert.alert('Copied to the clipboard!')
   }
 
   render () {
@@ -43,7 +44,7 @@ class HomeHeader extends React.Component {
 }
 
 export default class HomeScreen extends React.Component {
-  static navigationOptions = ({navigation}) => ({
+  static navigationOptions = ({ navigation }) => ({
     headerTitle: <HomeHeader value={navigation.getParam('key', '')} />
   });
 
@@ -82,14 +83,14 @@ export default class HomeScreen extends React.Component {
   startOrJoinInstance () {
     const key = this.props.navigation.getParam('key', '')
     const nick = this.state.nick
-    var msg = {type: 'join', key, nick}
+    var msg = { type: 'join', key, nick }
     var raw = JSON.stringify(msg)
     backend.channel.send(raw)
   }
 
   async updateKey (key) {
-    this.props.navigation.setParams({key, nick: this.state.nick})
-    this.setState(prev => ({...prev, key}))
+    this.props.navigation.setParams({ key, nick: this.state.nick })
+    this.setState(prev => ({ ...prev, key }))
 
     if (this._initialLoad) {
       this._initialLoad = false
@@ -101,13 +102,13 @@ export default class HomeScreen extends React.Component {
   }
 
   updateChannels (channels) {
-    this.setState(prev => ({...prev, channels}))
+    this.setState(prev => ({ ...prev, channels }))
   }
 
   enterChannel (channel) {
     AsyncStorage.setItem('favorite-channel', channel)
     const nick = this.state.nick
-    this.props.navigation.navigate('Chat', {channel, nick})
+    this.props.navigation.navigate('Chat', { channel, nick })
   }
 
   renderHeader () {
