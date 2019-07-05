@@ -5,6 +5,7 @@ var frontend = require('rn-bridge')
 var Cabal = require('cabal-core')
 var cabalSwarm = require('cabal-core/swarm.js')
 var collect = require('collect-stream')
+var crypto = require('hypercore-crypto')
 
 const MAX_FEEDS = 1000
 const MAX_MESSAGES = 100
@@ -25,12 +26,13 @@ frontend.channel.on('message', raw => {
 })
 
 function startOrJoin (key, nick) {
-  var starting = !key
+  if (!key) {
+    key = crypto.keyPair().publicKey.toString('hex')
+  }
   var dbPath = process.env.DB_PATH ? process.env.DB_PATH
     : path.resolve(__dirname, '..', 'db')
-  var dir = path.resolve(dbPath, starting ? 'myinstance' : key)
-  if (starting && fs.existsSync(dir)) rimraf.sync(dir)
-  cabal = Cabal(dir, starting ? null : key, { maxFeeds: MAX_FEEDS })
+  var dir = path.resolve(dbPath, key)
+  cabal = Cabal(dir, key, { maxFeeds: MAX_FEEDS })
   cabal.client = {
     channel: 'default',
     channels: [],
