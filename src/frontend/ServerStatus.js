@@ -3,7 +3,7 @@ import * as React from "react";
 import { Text, ActivityIndicator, StyleSheet } from "react-native";
 import { defineMessages, FormattedMessage } from "react-intl";
 
-import CenteredView from "../sharedComponents/CenteredView";
+import CenteredView from "./sharedComponents/CenteredView";
 
 const m = defineMessages({
   timeoutTitle: {

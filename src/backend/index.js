@@ -14,7 +14,7 @@ const releaseStage = prereleaseComponents
   : 'production'
 
 const log = debug('hypercore-mobile:index')
-const PORT = 9081
+const PORT = 9112
 const status = new ServerStatus()
 let paused = false
 let storagePath
@@ -35,10 +35,11 @@ rnBridge.channel.on('storagePath', path => {
   log('storagePath', path)
   if (path === storagePath) return
   const prevStoragePath = storagePath
-  if (server)
+  if (server) {
     server.close(() => {
       log('closed server with storagePath', prevStoragePath)
     })
+  }
   storagePath = path
   try {
     server = createServer({
@@ -74,12 +75,16 @@ rnBridge.app.on('resume', () => {
   startServer()
 })
 
-function startServer(cb) {
+function startServer (cb) {
+  log('starting server')
   if (!server) return
-  server.listen(PORT, () => status.setState(constants.LISTENING))
+  server.listen(PORT, () => {
+    log('listening')
+    status.setState(constants.LISTENING)
+  })
 }
 
-function stopServer(cb) {
+function stopServer (cb) {
   if (!server) return
   status.setState(constants.CLOSING)
   server.close(() => {

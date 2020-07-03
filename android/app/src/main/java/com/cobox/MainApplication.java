@@ -1,7 +1,7 @@
 package com.cobox;
 
 import android.app.Application;
-import android.util.Log;
+import android.content.Context;
 
 import com.facebook.react.PackageList;
 import com.facebook.hermes.reactexecutor.HermesExecutorFactory;
@@ -21,6 +21,7 @@ import org.unimodules.core.interfaces.SingletonModule;
 import com.mapbox.rctmgl.RCTMGLPackage;
 
 import java.util.Arrays;
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 public class MainApplication extends Application implements ShareApplication, ReactApplication {

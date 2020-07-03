@@ -4,11 +4,6 @@ import debug from "debug";
 
 import ServerStatusScreen from "./ServerStatus"
 import api, { Constants } from "./api";
-import {
-  withPermissions,
-  PERMISSIONS,
-  RESULTS
-} from "./context/PermissionsContext";
 
 const log = debug("AppLoading");
 
@@ -28,21 +23,18 @@ class AppLoading extends React.Component {
   };
 
   componentDidMount() {
-    this.props.requestPermissions([
-      PERMISSIONS.CAMERA,
-      PERMISSIONS.ACCESS_COARSE_LOCATION,
-      PERMISSIONS.ACCESS_FINE_LOCATION
-    ]);
     this._timeoutId = setTimeout(() => {
       SplashScreen.hide();
       this._timeoutId = null;
       log("hiding splashscreen");
     }, 1000);
+    log('adding listener', this.handleStatusChange)
     this._subscription = api.addServerStateListener(this.handleStatusChange);
   }
 
   componentDidUpdate() {
     if (this.state.serverStatus == null) {
+      log('starting server')
       api.startServer();
       this.setState({ serverStatus: Constants.STARTING });
     }
@@ -56,6 +48,7 @@ class AppLoading extends React.Component {
   }
 
   handleStatusChange = (serverStatus) => {
+    log('handleStatusChange', serverStatus)
     if (serverStatus === this.state.serverStatus) return;
     log("status change", serverStatus);
     this.setState({ serverStatus });
@@ -63,8 +56,8 @@ class AppLoading extends React.Component {
 
   render() {
     const { serverStatus } = this.state;
-    if (serverStatus == null) return null;
-    else if (serverStatus === Constants.ERROR) {
+    log('server status', serverStatus)
+    if (serverStatus === Constants.ERROR) {
       return <ServerStatusScreen variant="error" />;
     } else if (serverStatus === Constants.TIMEOUT) {
       return <ServerStatusScreen variant="timeout" />;
@@ -74,4 +67,4 @@ class AppLoading extends React.Component {
   }
 }
 
-export default withPermissions(AppLoading);
+export default AppLoading;

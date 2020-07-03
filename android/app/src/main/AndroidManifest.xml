@@ -1,33 +1,36 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" 
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
   package="com.cobox">
 
   <uses-permission android:name="android.permission.INTERNET" />
-  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-  <uses-permission android:name="android.permission.CAMERA" />
-  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-  <application android:name=".MainApplication" 
-    android:usesCleartextTraffic="true" 
-    android:label="@string/app_name" 
-    android:icon="@mipmap/ic_launcher" 
-    android:roundIcon="@mipmap/ic_launcher_round" 
-    android:allowBackup="false" 
+  <application android:name=".MainApplication"
+    android:usesCleartextTraffic="true"
+    android:label="@string/app_name"
+    android:icon="@mipmap/ic_launcher"
+    android:roundIcon="@mipmap/ic_launcher_round"
+    android:allowBackup="false"
     android:theme="@style/AppTheme">
-    <meta-data android:name="com.bugsnag.android.API_KEY" 
+    <meta-data android:name="com.bugsnag.android.API_KEY"
       android:value="572d472ea9d5a9199777b88ef268da4e"/>
-    <meta-data android:name="com.bugsnag.android.DETECT_NDK_CRASHES" 
+    <!-- When the main thread of an Android app is blocked for too long, it
+    appears unresponsive and the Android OS creates an Application Not
+    Responding (ANR) error, presenting the user with a dialog option to force
+    quit the app. This option detects and reports ANRs to bugsnag -->
+    <meta-data android:name="com.bugsnag.android.DETECT_ANRS"
+      android:value="true"/>
+    <!-- Detect and report crashes from C and C++ code (e.g. nodejs-mobile) -->
+    <meta-data android:name="com.bugsnag.android.DETECT_NDK_CRASHES"
       android:value="true"/>
     <!-- android:launchMode="singleTask" fixes a bug where our React app would
          never unmount and instead kept remounting new instances -->
     <!-- maybe add android:largeHeap="true" if we keep getting out of memory
          issues see https://developer.android.com/topic/performance/memory -->
-    <activity android:name=".MainActivity" 
-      android:label="@string/app_name" 
-      android:configChanges="keyboard|keyboardHidden|orientation|screenSize" 
-      android:launchMode="singleTask" 
-      android:largeHeap="true" 
-      android:screenOrientation="portrait" 
+    <activity android:name=".MainActivity"
+      android:label="@string/app_name"
+      android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+      android:launchMode="singleTask"
+      android:largeHeap="true"
+      android:screenOrientation="portrait"
       android:windowSoftInputMode="adjustResize">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
@@ -35,11 +38,11 @@
       </intent-filter>
     </activity>
     <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
-    <provider android:name="androidx.core.content.FileProvider" 
-      android:authorities="${applicationId}.provider" 
-      android:grantUriPermissions="true" 
+    <provider android:name="androidx.core.content.FileProvider"
+      android:authorities="${applicationId}.provider"
+      android:grantUriPermissions="true"
       android:exported="false">
-      <meta-data android:name="android.support.FILE_PROVIDER_PATHS" 
+      <meta-data android:name="android.support.FILE_PROVIDER_PATHS"
         android:resource="@xml/filepaths" />
     </provider>
   </application>
