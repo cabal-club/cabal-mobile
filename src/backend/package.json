@@ -1,0 +1,17 @@
+{
+  "name": "nodejs-mobile-backend",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": "^12.4.0"
+  },
+  "description": "This code is running on nodejs-mobile",
+  "main": "main.js",
+  "license": "MIT",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "node-gyp-build": "^4.1.0",
+    "noderify": "^4.1.0"
+  }
+}

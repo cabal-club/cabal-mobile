@@ -1,0 +1,16 @@
+@font-face {
+  src: url(./Octicons.ttf);
+  font-family: Octicons;
+}
+@font-face {
+  src: url(./MaterialIcons.ttf);
+  font-family: MaterialIcons;
+}
+@font-face {
+  src: url(./FontAwesome.ttf);
+  font-family: FontAwesome;
+}
+@font-face {
+  src: url(./MaterialCommunityIcons.ttf);
+  font-family: MaterialCommunityIcons;
+}
