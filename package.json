@@ -135,7 +135,7 @@
     "react-dom": "^16.8.6",
     "react-test-renderer": "16.9.0",
     "rimraf": "^3.0.0",
-    "standard-version": "^7.1.0",
+    "standard-version": "^8.0.1",
     "txtgen": "^2.2.2"
   },
   "jest": {
