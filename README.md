@@ -31,9 +31,7 @@ Assuming you're able to run the app, you should see a blank screen that says
     requests, while commands to Node.js can be done using the `rn-bridge`
     package).
 1. Create your front-end at `src/frontend/AppContainer.js`! 
-1. Add your logo and splash screen in the following repositories:
-  1. `android/app/src/main/res/*/*.png`
-  1. `android/app/src/qa/res/*/*.png`
+1. Add your logo and splash screen to `android/app/src/main/res/*/*.png` and `android/app/src/qa/res/*/*.png`
 
 ## Maintainers
 
