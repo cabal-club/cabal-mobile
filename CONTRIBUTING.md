@@ -1,6 +1,6 @@
 # Contributing
 
-hypercore-rn is a mobile app written in react-native that currently runs on
+This is a mobile app written in react-native that currently runs on
 Android. For most development you will need the Android SDK installed on your
 computer, but it is possible to contribute to UI Component development using the
 storybook server.
