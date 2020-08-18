@@ -1,12 +1,11 @@
 const rnBridge = require("rn-bridge");
-const log = require("debug")("hypercore-mobile:status");
 const constants = require("./constants");
 
 class ServerStatus {
   constructor() {
     this.setState(constants.STARTING);
     rnBridge.channel.on("request-status", () => {
-      log("status request");
+      console.log("status request");
       rnBridge.channel.post("status", this.state);
     });
   }
@@ -27,7 +26,7 @@ class ServerStatus {
     if (nextState === this.state) return;
     // Once we have an uncaught error, don't try to pretend it's gone away
     if (this.state === constants.ERROR) return;
-    log("state changed", nextState);
+    console.log("state changed", nextState);
     this.state = nextState;
     rnBridge.channel.post("status", nextState);
   }

@@ -13,7 +13,7 @@ const releaseStage = prereleaseComponents
   ? prereleaseComponents[0]
   : 'production'
 
-const log = debug('hypercore-mobile:index')
+const log = console.log
 const PORT = 9112
 const status = new ServerStatus()
 let paused = false

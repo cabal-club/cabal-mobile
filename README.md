@@ -1,9 +1,8 @@
-# hypercore-react-native
+# nodejs-mobile-native-template
 
-[![Build Status](https://app.bitrise.io/app/288e6b3c3069b8e6/status.svg?token=WQq3QO2MrSbNUnr4mfO8gQ&branch=master)](https://app.bitrise.io/app/288e6b3c3069b8e6)
 [![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-green.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
-> React native example for building applications using hypercore
+> React native example for building applications using Node.js native modules
 
 ## Table of Contents
 
@@ -29,7 +28,7 @@ Assuming you're able to run the app, you should see a blank screen that says
 1. Communicate between the backend and frontend in `src/frontend/api.js` and
    `src/backend/server.js` using `rn-bridge`, localhost http requests, or
     websockets depending on what you need (e.g., static assets should go over http
-    requests, while commands to hypercore could be done using the `rn-bridge`
+    requests, while commands to Node.js can be done using the `rn-bridge`
     package).
 1. Create your front-end at `src/frontend/AppContainer.js`! 
 1. Add your logo and splash screen in the following repositories:

@@ -1,6 +1,6 @@
 {
   "AppContainer.title": {
-    "description": "Welcome to a simple hypercore example app",
+    "description": "Welcome to a simple example nodejs app running native modules",
     "message": "Example text"
   }
 }
