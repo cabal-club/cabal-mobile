@@ -15,7 +15,7 @@ function createServer ({ privateStorage, sharedStorage }) {
   var opts = {
     hostname: 'localhost',
     port: 9112,
-    storage: path.join(privateStorage, '.cobox')
+    storage: path.join(privateStorage, '.myapp')
   }
   // The main db for p2p data
   // start hypercore here
