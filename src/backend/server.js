@@ -2,8 +2,7 @@ const path = require('path')
 const rnBridge = require('rn-bridge')
 const debug = require('debug')
 const http = require('http')
-//const CoboxServer = require('@coboxcoop/mono/src/server')
-//const constants = require('@coboxcoop/mono/src/constants')
+//const Hypercore = require('hypercore')
 
 module.exports = createServer
 
@@ -19,15 +18,6 @@ function createServer ({ privateStorage, sharedStorage }) {
     storage: path.join(privateStorage, '.cobox')
   }
   // The main db for p2p data
-  //const app = CoboxServer(opts)
-
-  /*
-  //app.start((err) => {
-    if (err) {
-      debug('failed to start the app properly')
-      throw err
-    }
-  })
-  */
+  // start hypercore here
   return server
 }

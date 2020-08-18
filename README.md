@@ -13,14 +13,29 @@
 - [Contributing](#contributing)
 - [License](#license)
 
-## Install
+## Usage
 
-Download the [latest release](https://github.com/karissa/hypercore-rn/releases)
-APK file and [install manually](https://www.wikihow.com/Install-APK-Files-from-a-PC-on-Android) on your Android phone.
+1. Fork this repository, or `git clone` and push to your own new repository.
+2. Edit `src/backend/server.js` and create your backend server that can
+   communicate and serve assets to the frontend. This is similar
+   to Electron! The only difference here is that with nodejs-mobile, the
+   frontend controls the lifecycle of the backend, rather than the other way around.
+3. Communicate between the backend and frontend in `src/frontend/api.js` and
+   `src/backend/server.js` using `rn-bridge`, localhost http requests, or
+    websockets depending on what you need (e.g., static assets should go over http
+    requests, while commands to hypercore could be done using the `rn-bridge`
+    package).
+4. Create your front-end at `src/frontend/AppContainer.js`! 
+5. Add your logo and splash screen in the following repositories:
+  * `android/app/src/main/res/*/*.png`
+  * `android/app/src/qa/res/*/*.png`
 
 ## Maintainers
 
-- [@karissa](https://github.com/karissa)
+- [@okdistribute](https://github.com/okdistribute)
+- You?
+
+PRs accepted!
 
 ## Community
 
@@ -32,7 +47,6 @@ Connect with the Dat community for support and to contribute!
 
 See [the contributing file](CONTRIBUTING.md)!
 
-PRs accepted.
 
 Small note: If editing the README, please conform to the [standard-readme](https://github.com/RichardLitt/standard-readme) specification.
 
