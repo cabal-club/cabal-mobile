@@ -1,7 +1,6 @@
 {
   "name": "nodjs-mobile-native-template",
   "version": "1.0.0",
-  "private": true,
   "engines": {
     "node": "^12.4.0"
   },
