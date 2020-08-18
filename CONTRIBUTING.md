@@ -81,7 +81,7 @@ You can also test the Mobile app in an emulator. [Set up a virtual device in
 Android Studio](https://developer.android.com/studio/run/managing-avds). Choose
 `x86` as the `ABI`, since this will be much faster.
 
-### Starting the dev version of Hypercore Mobile
+### Starting the dev version 
 
 Connect your phone with USB, or start up the emulator, then build and run the
 dev version of the app on your device:
