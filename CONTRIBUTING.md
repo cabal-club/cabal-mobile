@@ -7,12 +7,17 @@ storybook server.
 
 ## Initial Install
 
-In order to start developing you will need git and node >=v8 installed on your
+In order to start developing you will need git and node >=12 installed on your
 computer. For many development tasks you will also need the Android SDK installed.
 
 ```sh
-git clone https://github.com/karissa/hypercore-rn.git
-cd hypercore-rn
+npm install
+```
+
+Install backend dependencies
+
+```
+cd src/backend
 npm install
 ```
 
