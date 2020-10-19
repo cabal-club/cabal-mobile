@@ -14,7 +14,40 @@
 
 ## Usage
 
-First time setup? See [CONTRIBUTING](CONTRIBUTING.md])
+See [CONTRIBUTING](CONTRIBUTING.md]) for more detailed information on how to
+get set up.
+
+Short version below...
+
+0. Install React Native toolchain.
+
+1. Install dependencies
+
+```
+npm install
+cd src/backend && npm install && cd ..
+```
+
+2. Plug in your phone
+
+3) Build and install
+
+This will build the backend and front end and also install the application on
+your phone (or virtual device). If you change the backend code, you need to run
+this command to rebuild and reinstall the app.
+
+```
+npm run android
+```
+
+4. Dynamic refresh
+
+In another terminal, you can run this command and the application will refresh
+every time you change the frontend.
+
+```
+npm start
+```
 
 ## Community
 
