@@ -1,4 +1,4 @@
-package com.nodejs;
+package com.cabal;
 
 import com.wix.detox.Detox;
 

@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "nodejs.app"
-               BlueprintName = "nodejs"
-               ReferencedContainer = "container:nodejs.xcodeproj">
+               BuildableName = "cabal.app"
+               BlueprintName = "cabal"
+               ReferencedContainer = "container:cabal.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "nodejsTests.xctest"
-               BlueprintName = "nodejsTests"
-               ReferencedContainer = "container:nodejs.xcodeproj">
+               BuildableName = "cabalTests.xctest"
+               BlueprintName = "cabalTests"
+               ReferencedContainer = "container:cabal.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -61,9 +61,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "nodejsTests.xctest"
-               BlueprintName = "nodejsTests"
-               ReferencedContainer = "container:nodejs.xcodeproj">
+               BuildableName = "cabalTests.xctest"
+               BlueprintName = "cabalTests"
+               ReferencedContainer = "container:cabal.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -71,9 +71,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "nodejs.app"
-            BlueprintName = "nodejs"
-            ReferencedContainer = "container:nodejs.xcodeproj">
+            BuildableName = "cabal.app"
+            BlueprintName = "cabal"
+            ReferencedContainer = "container:cabal.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -94,9 +94,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "nodejs.app"
-            BlueprintName = "nodejs"
-            ReferencedContainer = "container:nodejs.xcodeproj">
+            BuildableName = "cabal.app"
+            BlueprintName = "cabal"
+            ReferencedContainer = "container:cabal.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -113,9 +113,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "nodejs.app"
-            BlueprintName = "nodejs"
-            ReferencedContainer = "container:nodejs.xcodeproj">
+            BuildableName = "cabal.app"
+            BlueprintName = "cabal"
+            ReferencedContainer = "container:cabal.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

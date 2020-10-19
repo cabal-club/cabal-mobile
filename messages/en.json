@@ -1,6 +1,6 @@
 {
   "AppContainer.title": {
-    "description": "Welcome to a simple example nodejs app running native modules",
+    "description": "Welcome to a simple example cabal app running native modules",
     "message": "Example text"
   }
 }

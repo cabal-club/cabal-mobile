@@ -1,8 +1,8 @@
 platform :ios, '9.0'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
-target 'nodejs' do
-  # Pods for nodejs
+target 'cabal' do
+  # Pods for cabal
   pod 'React', :path => '../node_modules/react-native/'
   pod 'React-Core', :path => '../node_modules/react-native/React'
   pod 'React-DevSupport', :path => '../node_modules/react-native/React'
@@ -28,7 +28,7 @@ target 'nodejs' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
-  target 'nodejsTests' do
+  target 'cabalTests' do
     inherit! :search_paths
     # Pods for testing
   end
@@ -36,10 +36,10 @@ target 'nodejs' do
   use_native_modules!
 end
 
-target 'nodejs-tvOS' do
-  # Pods for nodejs-tvOS
+target 'cabal-tvOS' do
+  # Pods for cabal-tvOS
 
-  target 'nodejs-tvOSTests' do
+  target 'cabal-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end

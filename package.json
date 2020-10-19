@@ -1,5 +1,5 @@
 {
-  "name": "nodjs-mobile-native-template",
+  "name": "cabal-mobile",
   "version": "1.0.0",
   "engines": {
     "node": "^12.4.0"
@@ -158,7 +158,7 @@
     "test-runner": "jest",
     "configurations": {
       "android.emu.debug": {
-        "binaryPath": "android/app/build/outputs/apk/app/debug/nodejs-app-debug.apk",
+        "binaryPath": "android/app/build/outputs/apk/app/debug/cabal-app-debug.apk",
         "build": "cd android && ./gradlew app:assembleDebug app:assembleAndroidTest -DtestBuildType=debug && cd ..",
         "type": "android.emulator",
         "device": {
@@ -166,13 +166,13 @@
         }
       },
       "android.device.debug": {
-        "binaryPath": "android/app/build/outputs/apk/app/debug/nodejs-app-debug.apk",
+        "binaryPath": "android/app/build/outputs/apk/app/debug/cabal-app-debug.apk",
         "build": "cd android && ./gradlew app:assembleDebug app:assembleAndroidTest -DtestBuildType=debug && cd ..",
         "type": "android.attached",
         "device": {}
       },
       "android.emu.release": {
-        "binaryPath": "android/app/build/outputs/apk/app/universal/nodejs-app-universal.apk",
+        "binaryPath": "android/app/build/outputs/apk/app/universal/cabal-app-universal.apk",
         "build": "cd android && ./gradlew app:assembleUniversal app:assembleAndroidTest -DtestBuildType=universal && cd ..",
         "type": "android.emulator",
         "device": {
@@ -180,14 +180,14 @@
         }
       },
       "ios.sim.debug": {
-        "binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/nodejs.app",
-        "build": "xcodebuild -project ios/nodejs.xcodeproj -scheme nodejs-configuration Debug -sdk iphonesimulator -derivedDataPath ios/build",
+        "binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/cabal.app",
+        "build": "xcodebuild -project ios/cabal.xcodeproj -scheme cabal-configuration Debug -sdk iphonesimulator -derivedDataPath ios/build",
         "type": "ios.simulator",
         "name": "iPhone 6s"
       },
       "ios.sim.release": {
-        "binaryPath": "ios/build/Build/Products/Release-iphonesimulator/nodejs.app",
-        "build": "xcodebuild -project ios/nodejs.xcodeproj -scheme nodejs -configuration Release -sdk iphonesimulator -derivedDataPath ios/build",
+        "binaryPath": "ios/build/Build/Products/Release-iphonesimulator/cabal.app",
+        "build": "xcodebuild -project ios/cabal.xcodeproj -scheme cabal -configuration Release -sdk iphonesimulator -derivedDataPath ios/build",
         "type": "ios.simulator",
         "name": "iPhone 6s"
       }

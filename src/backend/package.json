@@ -1,11 +1,11 @@
 {
-  "name": "nodejs-mobile-backend",
+  "name": "cabal-mobile-backend",
   "version": "1.0.0",
   "private": true,
   "engines": {
     "node": "^12.4.0"
   },
-  "description": "This code is running on nodejs-mobile",
+  "description": "This code is running on cabal-mobile",
   "main": "main.js",
   "license": "MIT",
   "dependencies": {

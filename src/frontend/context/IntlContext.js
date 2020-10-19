@@ -10,7 +10,7 @@ import messages from "../../../translations/messages.json";
 import languages from "../languages.json";
 
 // WARNING: This needs to change if we change the type of locale
-const STORE_KEY = "@nodejsLocale@1";
+const STORE_KEY = "@cabalLocale@1";
 
 const formats = {
   date: {

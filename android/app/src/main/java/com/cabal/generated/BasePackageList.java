@@ -1,4 +1,4 @@
-package com.nodejs.generated;
+package com.cabal.generated;
 
 import java.util.Arrays;
 import java.util.List;

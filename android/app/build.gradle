@@ -167,7 +167,7 @@ def getenv(key) {
 
 loadDotEnv()
 
-File releaseKeystore = file("nodejs-release-key.keystore")
+File releaseKeystore = file("cabal-release-key.keystore")
 def myVersionCode = (getenv("ANDROID_VERSION_CODE") ?: 1) as int
 
 
@@ -180,12 +180,12 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.nodejs"
+        applicationId "com.cabal"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode myVersionCode
         versionName getenv("ANDROID_VERSION_NAME") ?: "0.0.0"
-        archivesBaseName = "nodejs"
+        archivesBaseName = "cabal"
 
         // Detox integration
         testBuildType System.getProperty('testBuildType', 'debug')  // This will later be used to control the test apk build type
@@ -210,9 +210,9 @@ android {
             // Fallback to debug signing keystore if release keystore does not exist
             if (releaseKeystore.exists()) {
                 storeFile releaseKeystore
-                storePassword getenv("nodejs_KEYSTORE_PASSWORD")
-                keyAlias getenv("nodejs_KEYSTORE_ALIAS")
-                keyPassword getenv("nodejs_PRIVATE_KEY_PASSWORD")
+                storePassword getenv("cabal_KEYSTORE_PASSWORD")
+                keyAlias getenv("cabal_KEYSTORE_ALIAS")
+                keyPassword getenv("cabal_PRIVATE_KEY_PASSWORD")
             } else {
                 storeFile file('debug.keystore')
                 storePassword 'android'
