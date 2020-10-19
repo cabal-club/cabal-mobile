@@ -1,4 +1,4 @@
-package com.cobox;
+package com.nodejs;
 
 import android.os.Bundle; // react-native-splash-screen
 import com.facebook.react.ReactFragmentActivity; // react-native-screens
@@ -33,6 +33,6 @@ public class MainActivity extends ReactFragmentActivity {
      */
     @Override
     protected String getMainComponentName() {
-        return "cobox";
+        return "nodejs";
     }
 }

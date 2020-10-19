@@ -1,4 +1,4 @@
-package com.cobox.generated;
+package com.nodejs.generated;
 
 import java.util.Arrays;
 import java.util.List;
@@ -10,8 +10,7 @@ public class BasePackageList {
         new expo.modules.constants.ConstantsPackage(),
         new expo.modules.filesystem.FileSystemPackage(),
         new expo.modules.localization.LocalizationPackage(),
-        new expo.modules.permissions.PermissionsPackage(),
-        new expo.modules.sensors.SensorsPackage()
+        new expo.modules.permissions.PermissionsPackage()
     );
   }
 }

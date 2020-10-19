@@ -1,8 +1,8 @@
 platform :ios, '9.0'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
-target 'cobox' do
-  # Pods for cobox
+target 'nodejs' do
+  # Pods for nodejs
   pod 'React', :path => '../node_modules/react-native/'
   pod 'React-Core', :path => '../node_modules/react-native/React'
   pod 'React-DevSupport', :path => '../node_modules/react-native/React'
@@ -28,7 +28,7 @@ target 'cobox' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
-  target 'coboxTests' do
+  target 'nodejsTests' do
     inherit! :search_paths
     # Pods for testing
   end
@@ -36,10 +36,10 @@ target 'cobox' do
   use_native_modules!
 end
 
-target 'cobox-tvOS' do
-  # Pods for cobox-tvOS
+target 'nodejs-tvOS' do
+  # Pods for nodejs-tvOS
 
-  target 'cobox-tvOSTests' do
+  target 'nodejs-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end

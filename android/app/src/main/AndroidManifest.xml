@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.cobox">
+  package="com.nodejs">
 
   <uses-permission android:name="android.permission.INTERNET" />
 
@@ -10,17 +10,6 @@
     android:roundIcon="@mipmap/ic_launcher_round"
     android:allowBackup="false"
     android:theme="@style/AppTheme">
-    <meta-data android:name="com.bugsnag.android.API_KEY"
-      android:value="572d472ea9d5a9199777b88ef268da4e"/>
-    <!-- When the main thread of an Android app is blocked for too long, it
-    appears unresponsive and the Android OS creates an Application Not
-    Responding (ANR) error, presenting the user with a dialog option to force
-    quit the app. This option detects and reports ANRs to bugsnag -->
-    <meta-data android:name="com.bugsnag.android.DETECT_ANRS"
-      android:value="true"/>
-    <!-- Detect and report crashes from C and C++ code (e.g. nodejs-mobile) -->
-    <meta-data android:name="com.bugsnag.android.DETECT_NDK_CRASHES"
-      android:value="true"/>
     <!-- android:launchMode="singleTask" fixes a bug where our React app would
          never unmount and instead kept remounting new instances -->
     <!-- maybe add android:largeHeap="true" if we keep getting out of memory

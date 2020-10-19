@@ -64,6 +64,7 @@
     "react-native-device-info": "^5.5.4",
     "react-native-fs": "^2.16.6",
     "react-native-gesture-handler": "^1.6.1",
+    "react-native-hooks": "^0.9.0",
     "react-native-image-resizer": "^1.1.0",
     "react-native-indicators": "^0.17.0",
     "react-native-keep-awake": "^4.0.0",
@@ -157,7 +158,7 @@
     "test-runner": "jest",
     "configurations": {
       "android.emu.debug": {
-        "binaryPath": "android/app/build/outputs/apk/app/debug/cobox-app-debug.apk",
+        "binaryPath": "android/app/build/outputs/apk/app/debug/nodejs-app-debug.apk",
         "build": "cd android && ./gradlew app:assembleDebug app:assembleAndroidTest -DtestBuildType=debug && cd ..",
         "type": "android.emulator",
         "device": {
@@ -165,13 +166,13 @@
         }
       },
       "android.device.debug": {
-        "binaryPath": "android/app/build/outputs/apk/app/debug/cobox-app-debug.apk",
+        "binaryPath": "android/app/build/outputs/apk/app/debug/nodejs-app-debug.apk",
         "build": "cd android && ./gradlew app:assembleDebug app:assembleAndroidTest -DtestBuildType=debug && cd ..",
         "type": "android.attached",
         "device": {}
       },
       "android.emu.release": {
-        "binaryPath": "android/app/build/outputs/apk/app/universal/cobox-app-universal.apk",
+        "binaryPath": "android/app/build/outputs/apk/app/universal/nodejs-app-universal.apk",
         "build": "cd android && ./gradlew app:assembleUniversal app:assembleAndroidTest -DtestBuildType=universal && cd ..",
         "type": "android.emulator",
         "device": {
@@ -179,14 +180,14 @@
         }
       },
       "ios.sim.debug": {
-        "binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/cobox.app",
-        "build": "xcodebuild -project ios/cobox.xcodeproj -scheme cobox-configuration Debug -sdk iphonesimulator -derivedDataPath ios/build",
+        "binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/nodejs.app",
+        "build": "xcodebuild -project ios/nodejs.xcodeproj -scheme nodejs-configuration Debug -sdk iphonesimulator -derivedDataPath ios/build",
         "type": "ios.simulator",
         "name": "iPhone 6s"
       },
       "ios.sim.release": {
-        "binaryPath": "ios/build/Build/Products/Release-iphonesimulator/cobox.app",
-        "build": "xcodebuild -project ios/cobox.xcodeproj -scheme cobox -configuration Release -sdk iphonesimulator -derivedDataPath ios/build",
+        "binaryPath": "ios/build/Build/Products/Release-iphonesimulator/nodejs.app",
+        "build": "xcodebuild -project ios/nodejs.xcodeproj -scheme nodejs -configuration Release -sdk iphonesimulator -derivedDataPath ios/build",
         "type": "ios.simulator",
         "name": "iPhone 6s"
       }

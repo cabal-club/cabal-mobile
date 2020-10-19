@@ -20,8 +20,6 @@ buildscript {
     }
     dependencies {
         classpath("com.android.tools.build:gradle:3.4.2")
-        // Bugsnag plugin for uploading source maps and symbols to bugsnag
-        classpath 'com.bugsnag:bugsnag-android-gradle-plugin:4.+'
         // Used by Detox
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
 

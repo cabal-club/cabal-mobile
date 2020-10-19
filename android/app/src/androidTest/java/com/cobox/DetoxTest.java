@@ -1,4 +1,4 @@
-package com.cobox;
+package com.nodejs;
 
 import com.wix.detox.Detox;
 

@@ -9,6 +9,7 @@
   "main": "main.js",
   "license": "MIT",
   "dependencies": {
+    "cabal-client": "^6.2.4"
   },
   "devDependencies": {
     "node-gyp-build": "^4.1.0",
