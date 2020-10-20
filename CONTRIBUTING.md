@@ -73,15 +73,17 @@ export ANDROID_NDK_HOME=/Users/username/Library/Android/sdk/ndk-bundle
 
 To use a real device, you will need to [enable USB
 debugging](https://developer.android.com/studio/debug/dev-options) and connect
-the phone to your computer with a USB cable. Enter `adb devices` in the terminal
-to check that you can see the phone. You may need to unlock the phone screen and
-say that you trust your computer in order for adb to connect.
+the phone to your computer with a USB cable.
+
+Enter `adb devices` in the terminal to check that you can see the phone. You
+may need to unlock the phone screen and say that you trust your computer in
+order for adb to connect.
 
 You can also test the Mobile app in an emulator. [Set up a virtual device in
 Android Studio](https://developer.android.com/studio/run/managing-avds). Choose
 `x86` as the `ABI`, since this will be much faster.
 
-### Starting the dev version 
+### Starting the dev version
 
 Connect your phone with USB, or start up the emulator, then build and run the
 dev version of the app on your device:
@@ -144,4 +146,3 @@ adb kill-server
 adb devices
 adb reverse tcp:8081 tcp:8081
 ```
-
