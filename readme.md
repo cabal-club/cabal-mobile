@@ -1,5 +1,9 @@
 # Cabal Mobile
 
+**⚠️ re-development of Cabal Mobile is happening in the [v2 branch](https://github.com/cabal-club/cabal-mobile/tree/v2)—contributors wanted**
+
+---
+
 Chat with the p2p swarm on your mobile device (Android & iOS).
 
 <img src="./screenshot.jpg" width="320">
