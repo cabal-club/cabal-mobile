@@ -16,7 +16,7 @@ Chat with the p2p swarm on your mobile device (Android & iOS).
 
 ## Development
 
-Credits go to the contributors of cabal-node, react-native, react-navigation, react-native-gifted-chat, and nodejs-mobile.
+Credits go to the contributors of cabal-core, react-native, react-navigation, react-native-gifted-chat, and nodejs-mobile.
 
 First make sure you follow the official React Native docs to setup your local environment with the necessary compilers for Android and/or iOS. Then, git clone this project, and install dependencies:
 

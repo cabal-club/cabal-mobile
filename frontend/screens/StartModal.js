@@ -21,25 +21,25 @@ export default class StartModal extends React.Component {
 
   async componentDidMount () {
     const nick = await AsyncStorage.getItem('favorite-nick')
-    this.setState(prev => ({...prev, nick: nick}))
+    this.setState(prev => ({ ...prev, nick: nick }))
   }
 
   onPressEnter () {
-    const {nick} = this.state
+    const { nick } = this.state
     if (nick.length === 0) {
-      this.setState(prev => ({...prev, nickValid: false}))
+      this.setState(prev => ({ ...prev, nickValid: false }))
     } else {
       AsyncStorage.setItem('favorite-nick', nick)
-      this.props.navigation.navigate('Channels', {key: '', nick})
+      this.props.navigation.navigate('Channels', { key: '', nick })
     }
   }
 
   onChangeNick (nick) {
-    this.setState(prev => ({...prev, nick, nickValid: true}))
+    this.setState(prev => ({ ...prev, nick, nickValid: true }))
   }
 
   render () {
-    const {nickValid} = this.state
+    const { nickValid } = this.state
     return (
       <View style={styles.root}>
         <Text style={styles.label}>How do you want to be called?</Text>

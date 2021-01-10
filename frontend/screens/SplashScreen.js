@@ -18,7 +18,7 @@ export default class SplashScreen extends React.Component {
     }
   }
 
-  static navigationOptions = ({navigation}) => ({header: null})
+  static navigationOptions = ({ navigation }) => ({ header: null })
 
   async componentDidMount () {
     Animated.timing(this.state.logoAnimation, { toValue: 1, duration: 2000 }).start()
@@ -26,7 +26,7 @@ export default class SplashScreen extends React.Component {
     const nick = await AsyncStorage.getItem('favorite-nick')
     const channel = await AsyncStorage.getItem('favorite-channel')
     if (channel) {
-      this.resumeLastCabal({key, nick, channel})
+      this.resumeLastCabal({ key, nick, channel })
     } else {
       this.props.navigation.navigate('Main')
     }
@@ -38,19 +38,19 @@ export default class SplashScreen extends React.Component {
     }
   }
 
-  resumeLastCabal = ({key, nick, channel}) => {
+  resumeLastCabal = ({ key, nick, channel }) => {
     backend.start('main.js')
     this.backendListener = (raw) => {
       const msg = JSON.parse(raw)
       if (msg.type === 'ready') {
-        this.setState({stillLoading: true})
+        this.setState({ stillLoading: true })
       }
       if (msg.type === 'channels') {
-        this.props.navigation.navigate('Channels', {key, nick, channel})
+        this.props.navigation.navigate('Channels', { key, nick, channel })
       }
     }
     backend.channel.addListener('message', this.backendListener, this)
-    backend.channel.send(JSON.stringify({type: 'join', key, nick}))
+    backend.channel.send(JSON.stringify({ type: 'join', key, nick }))
   }
 
   render () {
@@ -59,7 +59,7 @@ export default class SplashScreen extends React.Component {
         <StatusBar backgroundColor='#000' barStyle='light-content' />
         <Animated.Image
           source={require('../images/logo.png')}
-          style={[styles.logo, {opacity: this.state.logoAnimation}]}
+          style={[styles.logo, { opacity: this.state.logoAnimation }]}
         />
         {this.state.stillLoading &&
           <ActivityIndicator style={styles.activityIndicator} />

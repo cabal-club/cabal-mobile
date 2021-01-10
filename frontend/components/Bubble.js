@@ -8,9 +8,9 @@ import {
   View,
   Platform
 } from 'react-native'
-import {MessageText, MessageImage, Time, utils} from 'react-native-gifted-chat'
+import { MessageText, MessageImage, Time, utils } from 'react-native-gifted-chat'
 
-const {isSameUser, isSameDay} = utils
+const { isSameUser, isSameDay } = utils
 
 export default class Bubble extends React.Component {
   constructor (props) {
@@ -27,7 +27,7 @@ export default class Bubble extends React.Component {
       this.context
         .actionSheet()
         .showActionSheetWithOptions(
-          {options, cancelButtonIndex},
+          { options, cancelButtonIndex },
           buttonIndex => {
             if (buttonIndex === 0) {
               Clipboard.setString(this.props.currentMessage.text)
@@ -67,7 +67,7 @@ export default class Bubble extends React.Component {
 
   renderMessageImage () {
     if (this.props.currentMessage.image) {
-      const {containerStyle, wrapperStyle, ...messageImageProps} = this.props
+      const { containerStyle, wrapperStyle, ...messageImageProps } = this.props
       if (this.props.renderMessageImage) {
         return this.props.renderMessageImage(messageImageProps)
       }
@@ -84,7 +84,7 @@ export default class Bubble extends React.Component {
   renderUsername () {
     const username = this.props.currentMessage.user.name
     if (username) {
-      const {containerStyle, wrapperStyle, ...usernameProps} = this.props
+      const { containerStyle, wrapperStyle, ...usernameProps } = this.props
       if (this.props.renderUsername) {
         return this.props.renderUsername(usernameProps)
       }
@@ -106,14 +106,14 @@ export default class Bubble extends React.Component {
 
   renderTime () {
     if (this.props.currentMessage.createdAt) {
-      const {containerStyle, wrapperStyle, ...timeProps} = this.props
+      const { containerStyle, wrapperStyle, ...timeProps } = this.props
       if (this.props.renderTime) {
         return this.props.renderTime(timeProps)
       }
       return (
         <Time
           {...timeProps}
-          containerStyle={{left: [styles.timeContainer]}}
+          containerStyle={{ left: [styles.timeContainer] }}
           textStyle={{
             left: [
               styles.standardFont,
@@ -188,11 +188,13 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end'
   },
   username: {
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    color: '#000'
   },
   time: {
     textAlign: 'left',
-    fontSize: 12
+    fontSize: 14,
+    color: '#111'
   },
   timeContainer: {
     marginLeft: 0,

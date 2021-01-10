@@ -1,14 +1,14 @@
 import React from 'react'
-import {View, StyleSheet} from 'react-native'
-import {Day, utils} from 'react-native-gifted-chat'
+import { View, StyleSheet } from 'react-native'
+import { Day, utils } from 'react-native-gifted-chat'
 import Bubble from './Bubble'
 import Avatar from './Avatar'
 
-const {isSameUser, isSameDay} = utils
+const { isSameUser, isSameDay } = utils
 
 export default class Message extends React.Component {
   getInnerComponentProps () {
-    const {containerStyle, ...props} = this.props
+    const { containerStyle, ...props } = this.props
     return {
       ...props,
       position: 'left',
@@ -31,7 +31,7 @@ export default class Message extends React.Component {
   }
 
   renderAvatar () {
-    const {currentMessage, previousMessage} = this.props
+    const { currentMessage, previousMessage } = this.props
     const isHidden =
       isSameUser(currentMessage, previousMessage) &&
       isSameDay(currentMessage, previousMessage)
@@ -43,16 +43,12 @@ export default class Message extends React.Component {
     const marginBottom = isSameUser(
       this.props.currentMessage,
       this.props.nextMessage
-    )
-      ? 2
-      : 10
+    ) ? 2 : 10
 
     return (
       <View>
         {this.renderDay()}
-        <View
-          style={[styles.container, {marginBottom}, this.props.containerStyle]}
-        >
+        <View style={[styles.container, { marginBottom }, this.props.containerStyle]}>
           {this.renderAvatar()}
           {this.renderBubble()}
         </View>

@@ -1,4 +1,4 @@
-import {createSwitchNavigator, createStackNavigator} from 'react-navigation'
+import { createSwitchNavigator, createStackNavigator } from 'react-navigation'
 import ChannelsList from './screens/ChannelsList'
 import ChatScreen from './screens/ChatScreen'
 import HomeScreen from './screens/HomeScreen'
@@ -50,7 +50,7 @@ export default createSwitchNavigator(
     },
     transitionConfig: () => ({
       screenInterpolator: props => ({
-        transform: [{translateX: 0}, {translateY: 0}]
+        transform: [{ translateX: 0 }, { translateY: 0 }]
       })
     })
   }
